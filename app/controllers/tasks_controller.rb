@@ -37,14 +37,17 @@ class TasksController < ApplicationController
     [
       { id:     1,
         thing:  "Brush hair",
+        description: "grab comb and drag it through your damn hair...seriously? Is this a question you have??? #failedatlife",
         status: false,
         complete_date:   nil},
       { id:     2,
         thing:  "Go to ADA",
+        description: "leave house, turn right, walk 2 blocks, board either 11 or 49, get off at 4th, walk south however many blocks.",
         status: false,
         complete_date: nil},
       { id:     3,
         thing:  "Make lame developer joke",
+        description: "self explanatory",
         status: true,
         complete_date: nil}
     ]

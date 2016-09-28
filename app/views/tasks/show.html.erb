@@ -3,9 +3,12 @@
 <article>
   <h1> <%= @mytask[:thing] %> </h1>
   <h3> Completed? <%= @mytask[:status] %> </h3>
-  <h3> Completion date: <%= @mytask[:complete_date] %> </h3>
-  <p> <%= link_to( "Edit", edit_path(@mytask[:id]) ) %> </p>
-  <p> <%= link_to( "Delete", delete_path(@mytask[:id]) ) %> </p>
+  <h5> Description: <%= @mytask[:description] %> </h5>
+  <h5> Completion date: <%= @mytask[:complete_date] %> </h5>
+
+  <p> <%= link_to( "Back", index_path() ) %> </p>
+  <!-- <p> <%= link_to( "Edit", edit_path(@mytask[:id]) ) %> </p>
+  <p> <%= link_to( "Delete", delete_path(@mytask[:id]) ) %> </p> -->
 
 
 </article>
