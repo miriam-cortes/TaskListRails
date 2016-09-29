@@ -36,6 +36,10 @@ class TasksController < ApplicationController
     @task[:thing] = params["thing"]
     @task[:description] = params["description"]
     @task[:status] = params["status"]
+
+    if @task[:status]
+      @task[:complete_date] = Time.now
+    end
   end
 
   def create
@@ -44,6 +48,7 @@ class TasksController < ApplicationController
     @task.thing = params[:task][:thing]
     @task.description = params[:task][:description]
     @task.status = params[:task][:status]
+    @task.complete_date = params[:task][:complete_date]
     @task.save
   end
 

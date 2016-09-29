@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'tasks/index', as: 'index'
 
   get 'tasks/new' => 'tasks#new', as: 'new'
-  post 'tasks/create' => 'posts#create', as: 'create'
+  post 'tasks/create' => 'tasks#create', as: 'create'
 
   get 'tasks/show/:id' => 'tasks#show', as: 'show'
 
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 # can this be /delete?? yes, but it's not convention so definitely don't do it for models
 
   get 'tasks/edit' => 'tasks#edit', as: 'edit'
-  get 'tasks/:id/update' => 'posts#update'
+  get 'tasks/:id/update' => 'tasks#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

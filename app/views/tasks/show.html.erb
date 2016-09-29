@@ -1,15 +1,13 @@
 <h2>Grrrl, I see you trying to get on that Show page</h2>
-
 <article>
-  <h1> <%= @mytask[:thing] %> </h1>
-  <h3> Completed? <%= @mytask[:status] %> </h3>
-  <h5> Description: <%= @mytask[:description] %> </h5>
-  <h5> Completion date: <%= @mytask[:complete_date] %> </h5>
+  <h1> <%= @task.thing %> </h1>
+  <h3> Completed? <%= @task.status %> </h3>
+  <h5> Description: <%= @task.description %> </h5>
+  <h5> Completion date: <%= @task.complete_date %> </h5>
 
-  <p> <%= link_to( "Back", index_path() ) %> </p>
-
-  <!-- <p> <%= link_to( "Edit", edit_path(@mytask[:id]) ) %> </p>
-  <p> <%= link_to( "Delete", delete_path(@mytask[:id]) ) %> </p> -->
+  <p> <%= button_to( "Edit Task", {action: "edit", id: @task[:id]}, method: :get ) %> </p>
+  <p> <%= button_to( "Delete Task",{action: "delete", id: @task[:id]}, method: :delete, data: {confirm: "Are you sure?"}) %>
+  </p>
 
 
 </article>
