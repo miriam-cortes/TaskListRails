@@ -7,6 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <nav>
+      <ul>
+        <li><%= link_to "View all tasks", root_path %></li>
+        <li><%= link_to "New task", new_path %></li>
+      </ul>
+    </nav>
+
+  </header>
 
 <%= yield %>
 
