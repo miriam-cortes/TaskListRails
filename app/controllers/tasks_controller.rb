@@ -9,21 +9,15 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id].to_i)
-    # @tasks = TasksController.alltasks
-    # @mytask = nil
-
-    # @tasks.each do |task|
-    #   number = params[:id].to_i
-    #   if task[:id] == number
-    #     @mytask = task
-    #   end
-    # end
-    # if @mytask == nil
-    #   render :file => 'public/404.html', :status => :not_found, :layout => false
-    # end
   end
 
   def delete
+    task.destroy
+    redirect_to :index
+  end
+
+  def task
+    @task ||= Task.find(params[:id].to_i)
   end
 
   def edit
@@ -50,6 +44,7 @@ class TasksController < ApplicationController
     @task.status = params[:task][:status]
     @task.complete_date = params[:task][:complete_date]
     @task.save
+    redirect_to :index
   end
 
   # def self.alltasks
