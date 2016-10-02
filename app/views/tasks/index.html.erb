@@ -3,18 +3,19 @@
 <% @tasks.each do |task| %>
 
   <article>
-    <% if task[:status] %>
-      <h2><%= link_to( task[:thing], show_path(task[:id]) ) %> ☑</h2>
-      <p>
-        <%= button_to( "Mark incomplete", {action: "mark_incomplete", id: task[:id]}, method: :post ) %>
-      </p>
-    <% else %>
-      <h2> <%= link_to( task[:thing], show_path(task[:id]) ) %></h2>
-      <p>
-        <%= button_to( "Mark Complete", {action: "mark_complete", id: task[:id]}, method: :post ) %>
-      </p>
-    <% end %>
     <ul>
+      <% if task[:status] %>
+        <h2><%= link_to( task[:thing], show_path(task[:id]) ) %> ☑</h2>
+        <li>
+          <%= button_to( "Mark incomplete", {action: "mark_incomplete", id: task[:id]}, method: :post ) %>
+        </li>
+      <% else %>
+        <h2> <%= link_to( task[:thing], show_path(task[:id]) ) %></h2>
+        <li>
+          <%= button_to( "Mark Complete", {action: "mark_complete", id: task[:id]}, method: :post ) %>
+        </li>
+      <% end %>
+
       <li><%= button_to( "Edit Task", {action: "edit", id: task[:id]}, method: :get ) %></li>
       <li><%= button_to( "Delete Task",{action: "delete", id: task[:id]}, method: :delete, data: {confirm: "Don't just delete because you're lazy... 🙄"}) %></li>
     </ul>
