@@ -5,9 +5,15 @@
   <h5> Description: <%= @task.description %> </h5>
   <h5> Completion date: <%= @task.complete_date %> </h5>
 
-  <p> <%= button_to( "Edit Task", {action: "edit", id: @task[:id]}, method: :get ) %> </p>
-  <p> <%= button_to( "Delete Task",{action: "delete", id: @task[:id]}, method: :delete, data: {confirm: "Don't just delete because you're lazy... 🙄"}) %>
-  </p>
+  <ul>
+    <% if @task[:status] %>
+      <li>  </li>
+    <% else %>
+      <li>  </li>
+    <% end %>
+
+    <li> <%= button_to( "Delete Task",{action: "delete", id: @task[:id]}, method: :delete, data: {confirm: "Don't just delete because you're lazy... 🙄"}) %> </li>
+  </ul>
 
 
 </article>

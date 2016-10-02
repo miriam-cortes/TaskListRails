@@ -25,15 +25,12 @@ class TasksController < ApplicationController
   end
 
   def update
-    show
-
-    @task[:thing] = params["thing"]
-    @task[:description] = params["description"]
-    @task[:status] = params["status"]
-
-    if @task[:status]
-      @task[:complete_date] = Time.now
-    end
+    @task = task
+    @task.thing = params[:thing]
+    @task.description = params[:description]
+    @task.status = params[:status]
+    @task.save
+    redirect_to :index
   end
 
   def create
@@ -42,29 +39,34 @@ class TasksController < ApplicationController
     @task.thing = params[:task][:thing]
     @task.description = params[:task][:description]
     @task.status = params[:task][:status]
-    @task.complete_date = params[:task][:complete_date]
+    if @task.status
+      @task.complete_date = Time.now
+    end
     @task.save
     redirect_to :index
   end
 
-  # def self.alltasks
-  #   [
-  #     { id:     1,
-  #       thing:  "Brush hair",
-  #       description: "grab comb and drag it through your damn hair...seriously? Is this a question you have??? #failedatlife",
-  #       status: false,
-  #       complete_date:   nil},
-  #     { id:     2,
-  #       thing:  "Go to ADA",
-  #       description: "leave house, turn right, walk 2 blocks, board either 11 or 49, get off at 4th, walk south however many blocks.",
-  #       status: false,
-  #       complete_date: nil},
-  #     { id:     3,
-  #       thing:  "Make lame developer joke",
-  #       description: "self explanatory",
-  #       status: true,
-  #       complete_date: nil}
-  #   ]
-  # end
+  def mark_complete
+    @task = task
+    # show
+    @task.status = true
+    @task.complete_date = Time.now
+    @task.save
+    redirect_to :index
+  end
+
+  def mark_incomplete
+    show
+    @task = task
+    @task.status = false
+    @task.complete_date = nil
+    @task.save
+    redirect_to :index
+  end
+
+  private
+  def post_params
+    params.require(:task).permit(:thing, :description)
+  end
 
 end
