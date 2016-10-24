@@ -1,6 +1,4 @@
-<h1>Create a new Task</h1>
-<!--
-<%= form_for @task,as: :task, url: create_path do |task_a| %>
+<%= form_for @task,as: :task, url: action_name do |task_a| %>
   <p>
   <%= task_a.label :thing %>
   <%= task_a.text_field :thing %>
@@ -20,5 +18,4 @@
   <%= task_a.submit %>
   </p>
 
-<% end %> -->
-<%= render partial: "form", locals: {action_name: "create"} %>
+<% end %>
