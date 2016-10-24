@@ -7,11 +7,11 @@
 # Ignore bundler config.
 /.bundle
 
-/.env
-.env
 .DS_Store
 /.DS_Store
 
+# Hide the .env It's full of secrets!!
+/.env
 
 # Ignore the default SQLite database.
 /db/*.sqlite3

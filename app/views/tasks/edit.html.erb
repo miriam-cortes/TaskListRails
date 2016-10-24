@@ -1,6 +1,6 @@
 <h1>Edit a Task</h1>
 
-<form name="edit-task" action="update" method="task">
+<!-- <form name="edit-task" action="update" method="task">
   <input type="hidden" name="_method" value="PUT" />
 
   <label for="thing">Title:</label>
@@ -16,6 +16,7 @@
 
 
   <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
-  <button type="submit">Submit Edits</button>
+  <button type="submit">Submit Edits</button> -->
 
-</form>
+<!-- </form> -->
+<%= render partial: "form", locals: {action_name: "update"} %>

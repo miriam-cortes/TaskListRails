@@ -9,15 +9,21 @@
 <body>
   <header>
     <nav>
-      <ul>
-        <li><%= link_to "View all tasks", root_path %></li>
-        <li><%= link_to "New task", new_path %></li>
-      </ul>
+      <% if @user %>
+        <p><%= link_to("Log out", "/auth/github") %></p>
+        <p><%= link_to "View all tasks", userindex_path %></p>
+        <p><%= link_to "New task", new_path %></p>
+      <% else %>
+        <p><%= link_to("Please log in via Github", "/auth/github") %></p>
+      <% end %>
     </nav>
-
   </header>
 
-<%= yield %>
+  <div>
+    <h1>Hey grrrrl...let's get stuff done</h1>
+    <img src="http://ell.h-cdn.co/assets/cm/15/02/480x221/placeholder_54ae89503fc86_-_elle-04-ryan-gosling.jpg" alt="Ryan Renolds is cheering for your success" />
+  </div>
+  <%= yield %>
 
 </body>
 </html>
