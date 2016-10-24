@@ -1,13 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  thing: MyString
-  description: MyString
-  status: false
+adas_task:
+  thing: "write the 1st code!"
+  description: "Fortran"
+  user: :ada
+  status: true
   complete_date: 2016-09-29 15:13:43
 
-two:
-  thing: MyString
-  description: MyString
+babbages_task:
+  thing: "make the first computer"
+  description: "build the thing"
+  user: :babbage
   status: false
-  complete_date: 2016-09-29 15:13:43
