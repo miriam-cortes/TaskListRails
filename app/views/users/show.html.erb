@@ -1,2 +1,31 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<div>
+  <h1>Welcome <%= @user.name %></h1>
+  <% if @user.tasks.count != 0 %>
+    <% @user.tasks.each do |task| %>
+    <article>
+      <%#= task.inspect %>
+      <ul>
+        <% if task[:status] %>
+          <h2><%= link_to( task[:thing], user_task_path(@user.id, task.id) ) %> ☑</h2>
+          <li>
+            <%= button_to( "Mark Incomplete", mark_incomplete_path(@user, task), method: :patch ) %>
+          </li>
+        <% else %>
+          <h2> <%= link_to( task.thing, user_task_path(@user, task) ) %></h2>
+          <li>
+            <%= button_to( "Mark Complete", mark_complete_path(@user, task), method: :patch ) %>
+          </li>
+        <% end %>
+        <li><%= button_to( "Edit Task",  edit_user_task_path(@user, task), method: :get ) %></li>
+        <li><%= button_to( "Delete Task",user_task_path(@user, task), method: :delete, data: {confirm: "Don't just delete because you're lazy... 🙄"}) %></li>
+      </ul>
+    </article>
+    <% end %>
+  <% else %>
+    <p>You have no tasks on your list- Get busy!</p>
+  <% end %>
+  <% if flash[:notice] %>
+    <p class="flash-notice"> <%= flash[:notice] %></p>
+  <% end %>
+</div>

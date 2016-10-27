@@ -1,4 +1,6 @@
-<%= form_for @task,as: :task, url: action_name do |task_a| %>
+<%= form_for @task,
+  method: @post_method,
+  url: @post_path do |task_a| %>
   <p>
   <%= task_a.label :thing %>
   <%= task_a.text_field :thing %>
