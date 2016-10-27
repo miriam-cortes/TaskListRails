@@ -1,24 +1,2 @@
-<h1>Create a new Task</h1>
-<!--
-<%= form_for @task,as: :task, url: create_path do |task_a| %>
-  <p>
-  <%= task_a.label :thing %>
-  <%= task_a.text_field :thing %>
-  </p>
-
-  <p>
-  <%= task_a.label :description %>
-  <%= task_a.text_area :description %>
-  </p>
-
-  <p>
-  <%= task_a.label :Completed %>
-  <%= task_a.check_box :status %>
-  </p>
-
-  <p>
-  <%= task_a.submit %>
-  </p>
-
-<% end %> -->
+<h1>Create a new Task, <%= @user.name %></h1>
 <%= render partial: "form", locals: {action_name: "create"} %>

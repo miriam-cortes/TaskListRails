@@ -10,9 +10,9 @@
   <header>
     <nav>
       <% if @user %>
-        <p><%= link_to("Log out", "/auth/github") %></p>
-        <p><%= link_to "View all tasks", userindex_path %></p>
-        <p><%= link_to "New task", new_path %></p>
+        <p><%= link_to("Log out", sessions_destroy_path, method: :delete) %></p>
+        <p><%= link_to "View all tasks", user_path(@user.id) %></p>
+        <p><%= link_to "New task", new_user_task_path(@user.id) %></p>
       <% else %>
         <p><%= link_to("Please log in via Github", "/auth/github") %></p>
       <% end %>
